@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()                                                    
+{
+    string s;
+    cin>>s;
+    vector<int> f(26,0);
+    int len = s.length();
+    sort(s.begin(),s.end());
+
+    for(int i=0;i<len;i++)
+    {
+        f[s[i] - 'a']++;
+    }
+
+    int count = 0;
+
+    for(int i=0;i<26;i++)
+    {
+        if(f[i] % 2 != 0)
+            count++;
+    }
+
+    if(count > 1)
+        cout<<"No";
+    else
+        cout<<"Yes";
+}
