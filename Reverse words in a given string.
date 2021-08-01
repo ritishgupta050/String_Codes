@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string rev(string S)                                                      
+{
+    int start = 0;
+
+    for(int end=0;end<S.size();end++)
+    {
+        if(S[end] == ' ')
+        {
+            reverse(S.begin() + start, S.begin() + end);  //First word reverse
+            start = 1 + end;
+        }
+    }
+    reverse(S.begin()+start, S.end());           //Last word reverse
+    reverse(S.begin(),S.end());                 //whole string reverse
+    return S;
+}
+
+int main()
+{
+    string s;
+    getline(cin,s);
+
+    cout<<rev(s);
+}
